@@ -9,23 +9,32 @@
 		* {
 		    margin: 0;
 		    padding: 0;
+			font-size: 1.5rem;
 		}
 
 		.date-wrap {
-		    width: 350px;
+		    width: 100%;
+			padding: 20px;
+			box-sizing: border-box;
 		}
 
 		.date-header {
-			width: 320px;
-		    height: 30px;
-		    margin-left: 30px;
-		    padding-top: 10px;
+			width: 100%;
+		    
 		    font-weight: bold;
 		    font-family: 'Gaegu', cursive;
+
+			display: flex;
+			align-items: center;
+			justify-content : space-between;
 		}
 
-		.date-header span {
-			margin-right: 10px;
+		.date-header > div:first-child {
+			display: flex;
+			flex : 1 0 auto;
+		}
+		.date-header > div:last-child >span{
+			cursor: pointer;
 		}
 
 		.date-header-left {
@@ -37,7 +46,7 @@
 		}
 	
 		.date-table {
-			width: 350px;
+			width: 100%;
 			text-align: right;
 			table-layout:fixed;
 
@@ -121,7 +130,7 @@
 				$.each($("#dateTable tr"), function(index,data) {
 					if(index != 0) data.remove(); 
 				});
-				$(output).appendTo("#dateTable");
+				$(output).appendTo("#dateTable"); 
 				$("#year").text(nowYear.toString() + "년");
 				$("#month").text((nowMonth+1).toString() + "월");
 			}
@@ -149,10 +158,21 @@
 <body>
 	<div class="date-wrap">
         <div class="date-header">
-            <span id="year" class="date-header-left"></span>
+			<div>
+			<span id="year" class="date-header-left"></span>&nbsp;
             <span id="month" class="date-header-left"></span>
-            <span id="date-plus" class='fas fa-chevron-right date-header-right' move-cal=1></span>
-            <span id="date-minus" class='fas fa-chevron-left date-header-right' move-cal=-1></span>
+			</div>
+            <div>
+				<span id="date-plus" move-cal=1 style="margin-right: 20px;">
+					<img src="images/left-arrow.png" width="20" height="20" />
+					
+				</span>
+				<span id="date-minus" class='fas fa-chevron-left date-header-right' move-cal=-1 >
+					<img src="images/right-arrow.png" width="20" height="20" />
+				</span>
+			</div>
+            
+            
         </div>
         <div class="date-content">
             <table id="dateTable" class="date-table">
