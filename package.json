@@ -1,0 +1,13 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/psycho-o0o/calendar",
+  "author": "psycho-o0o <psycho-o0o@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "serve-static": "^1.15.0"
+  }
+}
